@@ -21,13 +21,13 @@ def getList(path):
     for folder in folders:
         pathtofolder = f"00;{path}/{folder}" # next folder path
         items.append(ExtensionSmallResultItem(icon='images/folder.png',
-                                            name='Folder: %s' % folder,
+                                            name=folder,
                                             on_enter=ExtensionCustomAction(pathtofolder, keep_app_open=True)))
     pdfs = getFiles(path)
     for pdf in pdfs:
         pathtofile = f"01;{path}/{pdf}"
         items.append(ExtensionSmallResultItem(icon='images/pdf.png',
-                                            name='PDF: %s' % pdf,
+                                            name=pdf,
                                             on_enter=ExtensionCustomAction(pathtofile, keep_app_open=False)))
     return(items)
 
