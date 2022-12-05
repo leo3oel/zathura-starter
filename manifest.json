@@ -1,0 +1,26 @@
+{
+    "required_api_version": "^2.0.0",
+    "name": "Zathura Starter",
+    "description": "Open a PDF File in Zathura",
+    "developer_name": "Leonhard Schraut",
+    "icon": "images/icon.png",
+    "options": {
+      "query_debounce": 0.5
+    },
+    "preferences": [
+      {
+        "id": "zat_kw",
+        "type": "keyword",
+        "name": "Start Keyword",
+        "description": "Keyword to open extension",
+        "default_value": "zat"
+      },
+      {
+        "id": "start path",
+        "type": "text",
+        "name": "Start Path",
+        "description": "Path to start PDF search",
+        "default_value": "~"
+      }
+    ]
+  }
