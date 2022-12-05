@@ -19,8 +19,8 @@
         "id": "start_path",
         "type": "text",
         "name": "Start Path",
-        "description": "Path to start PDF search",
+        "description": "Path to start PDF search; Input without '/' at the end e.g. /home",
         "default_value": "~"
       }
     ]
-  }
+}
