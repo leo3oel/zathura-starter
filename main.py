@@ -12,6 +12,14 @@ from folder import *
 
 path = "~"
 
+class ZathuraExtension(Extension):
+
+    def __init__(self):
+        super().__init__() # Parent Constructor
+        self.subscribe(KeywordQueryEvent, KeywordQueryEventListener()) # if Keywords get entered -> KeywordQueryEventListener
+        self.subscribe(ItemEnterEvent, ItemEnterEventListener())  # <-- add this line
+        self.subscribe(PreferencesEvent, PreferencesEventListener())
+
 def getList(path):
     """
     Make Liste to Display
@@ -31,15 +39,9 @@ def getList(path):
                                             on_enter=ExtensionCustomAction(pathtofile, keep_app_open=False)))
     return(items)
 
-class ZathuraExtension(Extension):
-
-    def __init__(self):
-        super().__init__() # Parent Constructor
-        self.subscribe(KeywordQueryEvent, KeywordQueryEventListener()) # if Keywords get entered -> KeywordQueryEventListener
-        self.subscribe(ItemEnterEvent, ItemEnterEventListener())  # <-- add this line
-        self.subscribe(PreferencesEvent, PreferencesEventListener())
-
-
+"""
+Listeners
+"""
 class KeywordQueryEventListener(EventListener):
 
     def on_event(self, event, extension):
@@ -47,6 +49,10 @@ class KeywordQueryEventListener(EventListener):
         return RenderResultListAction(getList(path))
 
 class ItemEnterEventListener(EventListener):
+    """
+    Executes Code on Enter
+    get_data starts with 2 digits and a ; to seperate Folder Actions from PDF Actions
+    """
 
     def on_event(self, event, extension):
         # event is instance of ItemEnterEvent

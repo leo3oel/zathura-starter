@@ -1,5 +1,11 @@
 import subprocess as sub
 
+"""
+list files
+-> Seperate PDFS and Folders
+-> Sort PDFs and Folders
+"""
+
 def getFolders(path):
     command_result = sub.run(["ls", path], capture_output=True, encoding='UTF-8')
     str_result = command_result.stdout
@@ -75,6 +81,3 @@ def getFiles(path):
     pdfs.sort()
 
     return(pdfs)
-
-    def openFile():
-        sub.run(["ls", path], capture_output=True, encoding='UTF-8')
