@@ -1,6 +1,6 @@
 import subprocess as sub
 
-def getFiles(path):
+def getFolders(path):
     command_result = sub.run(["ls", path], capture_output=True, encoding='UTF-8')
     str_result = command_result.stdout
 
@@ -16,6 +16,35 @@ def getFiles(path):
             temp += str_result[i]
 
     folder = []
+
+    # Separate files with ending from folders
+    for item in list:
+        for i in range(len(item)):
+            if item[i] == ".":
+                break
+            else:
+                if i == len(item)-1:
+                    folder.append(item)
+
+    folder.sort()
+    return(folder)
+
+# return files list
+def getFiles(path):
+    command_result = sub.run(["ls", path], capture_output=True, encoding='UTF-8')
+    str_result = command_result.stdout
+
+    list = []
+    temp = ""
+
+    # Make list with Folder & Filenames
+    for i in range(len(str_result)):
+        if str_result[i] == "\n":
+            list.append(temp)
+            temp = ""
+        else:
+            temp += str_result[i]
+
     pdfs = []
 
     # Separate files with ending from folders
@@ -26,7 +55,7 @@ def getFiles(path):
                 break
             else:
                 if i == len(item)-1:
-                    folder.append(item)
+                    break
 
     # count unnecessary items
     delete = []
@@ -43,10 +72,6 @@ def getFiles(path):
         pdfs.pop(delete[i]-offset)
         offset+=1
 
-    folder.sort()
     pdfs.sort()
 
-    for item in pdfs:
-        folder.append(item)
-
-    return(folder)
+    return(pdfs)
