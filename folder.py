@@ -15,7 +15,7 @@ def getFolders(path):
         else:
             temp += str_result[i]
 
-    folder = []
+    folder = [".."]
 
     # Separate files with ending from folders
     for item in list:
