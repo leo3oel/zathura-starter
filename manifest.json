@@ -16,7 +16,7 @@
         "default_value": "zat"
       },
       {
-        "id": "start path",
+        "id": "start_path",
         "type": "text",
         "name": "Start Path",
         "description": "Path to start PDF search",

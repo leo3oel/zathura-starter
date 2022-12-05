@@ -75,3 +75,6 @@ def getFiles(path):
     pdfs.sort()
 
     return(pdfs)
+
+    def openFile():
+        sub.run(["ls", path], capture_output=True, encoding='UTF-8')
