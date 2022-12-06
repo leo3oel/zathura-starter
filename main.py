@@ -66,7 +66,7 @@ class ItemEnterEventListener(EventListener):
             pdf = data[3:] # extract filename
 
             # Open File in Zathura
-            sub.run(["zathura", pdf])
+            sub.Popen(["zathura", pdf])
 
             return RenderResultListAction([])
 
